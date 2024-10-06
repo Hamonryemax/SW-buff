@@ -1,6 +1,18 @@
 .header {
+    width: 1000px;
+    margin: 0px;
+}
+
+.nav {
     display: flex;
     font-size: 24px;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+}
+
+.nav-label {
+    font-size: 40px;
 }
 
 .container-btn {

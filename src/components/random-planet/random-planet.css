@@ -1,0 +1,35 @@
+.container-randomplanet {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.random-planet {
+    display: flex;
+    background-color: black;
+    border: none;
+    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+}
+
+.container-infoplanet {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 100px;
+}
+
+.label-planet {
+    display: flex;
+    font-size: 24px;
+}
+
+.info-planet {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}

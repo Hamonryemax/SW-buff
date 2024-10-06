@@ -3,11 +3,11 @@ import React from 'react';
 import './header.css';
 
 const Header = () => {
-    return(
+    return (
         <div className="header">
             <ul className="nav nav-tabs">
-                <li className="nav-item">
-                    <a className="nav-link active">SWbuff</a>
+                <li className="nav-label">
+                    <a className="nav-link">SWbuff</a>
                 </li>
                 <div className="container-btn">
                     <li className="nav-item">
@@ -21,7 +21,6 @@ const Header = () => {
                     </li>
                 </div>
             </ul>
-
         </div>
     )
 }

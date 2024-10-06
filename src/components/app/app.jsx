@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import Header from '../header/header.jsx';
-import './App.css'
+import RandomPlanet from '../random-planet/random-planet.jsx';
+import './app.css'
 
 function App() {
 
     return (
         <>
-            <Header />
+            <div className="container">
+                <Header />
+                <RandomPlanet />
+            </div>
         </>
     )
 }
