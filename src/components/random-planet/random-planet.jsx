@@ -6,13 +6,13 @@ const RandomPlanet = () => {
     return (
 
         <div className="container-randomplanet">
-            <img className="random-planet"/>
+            <img className="random-planet-img"/>
             <div className="container-infoplanet">
-                <div className="label-planet">Planet Name</div>
                 <ul className="info-planet">
-                    <li className="population">population</li>
-                    <li className="rotation-period">rotation-period</li>
-                    <li className="diameter">diameter</li>
+                    <div className="label-planet">Planet Name</div>
+                    <li className="info-item">population</li>
+                    <li className="info-item">rotation-period</li>
+                    <li className="info-item">diameter</li>
                 </ul>
             </div>
         </div>
