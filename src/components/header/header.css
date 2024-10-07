@@ -1,6 +1,5 @@
 .header {
-    width: 1000px;
-    margin: 0px;
+    width: 100%;
 }
 
 .nav {
@@ -13,6 +12,10 @@
 
 .nav-label {
     font-size: 40px;
+}
+
+.nav-label-link {
+    cursor: pointer;
 }
 
 .container-btn {

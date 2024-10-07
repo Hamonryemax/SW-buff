@@ -7,7 +7,7 @@ const Header = () => {
         <div className="header">
             <ul className="nav nav-tabs">
                 <li className="nav-label">
-                    <a className="nav-link">SWbuff</a>
+                    <a className="nav-label-link">SWbuff</a>
                 </li>
                 <div className="container-btn">
                     <li className="nav-item">
