@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Spinner from '../spinner/spinner.jsx'
-
+import Spinner from '../spinner/spinner.jsx';
+import ErrorIndicator from '../error-indicator/error-indicator.jsx';
 import SwapiService from "../../services/swapi-service.js";
 
 import './random-planet.css';
@@ -15,10 +15,14 @@ const RandomPlanet = () => {
     const [rotationPeriod, setRotationPeriod] = useState(null);
     const [diameter, setDiameter] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
-    const updatePlanet = ()=> {
+    const updatePlanet = () => {
         setLoading(true);
-        const id = Math.floor(Math.random()*20) + 2;
+        setError(false);
+
+        const id = Math.floor(Math.random() * 20) + 2;
+
         swapiService.getPlanet(id)
             .then((planet) => {
                 setId(id);
@@ -27,6 +31,10 @@ const RandomPlanet = () => {
                 setRotationPeriod(planet.rotation_period);
                 setDiameter(planet.diameter);
                 setLoading(false);
+            })
+            .catch(() => {
+                setLoading(false);
+                setError(true);
             });
     };
 
@@ -34,14 +42,16 @@ const RandomPlanet = () => {
         updatePlanet();
     }, []);
 
-    if (loading) {
-        return <Spinner />;
+    if (error) {
+        return <ErrorIndicator />;
     }
 
     return (
         <div className="container-randomplanet">
-            <img className="random-planet-img" alt="Planet"
-                src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}/>
+            {
+                loading ? <Spinner/> : <img className="random-planet-img" alt="Planet"
+                                       src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}/>
+            }
             <div className="container-infoplanet">
                 <ul className="info-planet">
                     <div className="label-planet">{name}</div>
@@ -60,8 +70,7 @@ const RandomPlanet = () => {
                 </ul>
             </div>
         </div>
-
-    )
+    );
 }
 
 export default RandomPlanet;
