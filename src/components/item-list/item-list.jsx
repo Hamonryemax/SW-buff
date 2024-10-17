@@ -24,19 +24,18 @@ const ItemList = () => {
             });
     }, []);
 
-    if (loading) {
-        return <Spinner />;
-    }
 
     return (
-        <div>
+        <div className="container-for-item">
+            { loading ? <Spinner/> :
             <ul className="list-item">
-                {peopleList.map((person) => (
-                    <li key={person.id} className="list-group-item list-group-item-action item">
+                {peopleList.map((person, index) => (
+                    <li key={index} className="list-group-item list-group-item-action item">
                         {person.name}
                     </li>
                 ))}
             </ul>
+            }
         </div>
     );
 }
