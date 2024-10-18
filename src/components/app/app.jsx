@@ -13,8 +13,10 @@ function App() {
             <div className="container">
                 <Header />
                 <RandomPlanet />
-                <ItemList />
-                <PersonDetails />
+                <div className="container-for-panel">
+                    <ItemList />
+                    <PersonDetails />
+                </div>
             </div>
         </>
     )
