@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SwapiService from "../../services/swapi-service.js";
 import './person-details.css';
+import BlankWindowDetails from "../blank-window-details/blank-window-details.jsx";
 
 const PersonDetails = ({ personId }) => {
     const swapiService = new SwapiService();
@@ -25,7 +26,7 @@ const PersonDetails = ({ personId }) => {
     }, [personId]);
 
     if (!person) {
-        return <span>Select a person from the list</span>;
+        return <BlankWindowDetails />;
     }
 
     const { id, name, gender, birthYear, eyeColor } = person;

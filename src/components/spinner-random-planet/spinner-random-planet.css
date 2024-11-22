@@ -3,7 +3,8 @@
     50% { transform: rotate(180deg) }
     100% { transform: rotate(360deg) }
 }
-.ldio-x2uulkbinbj div {
+
+.ldio-x2uulkbinb div {
     position: absolute;
     animation: ldio-x2uulkbinbj 1s linear infinite;
     width: 76px;
@@ -16,16 +17,16 @@
     margin-left: auto;
     margin-right: auto;
 }
-.loadingio-spinner-eclipse-nq4q5u6dq7r {
+
+.loadingio-spinner-eclipse-nq4q5u6dq7 {
     width: 200px;
     height: 200px;
     display: inline-block;
     overflow: hidden;
     background: #2f2f2f;
     border-radius: 3%;
-    margin: 20px 0;
 }
-.ldio-x2uulkbinbj {
+.ldio-x2uulkbinb {
     width: 100%;
     height: 100%;
     position: relative;
@@ -33,4 +34,5 @@
     backface-visibility: hidden;
     transform-origin: 0 0;
 }
+
 .ldio-x2uulkbinbj div { box-sizing: content-box; }

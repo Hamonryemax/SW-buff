@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Spinner from '../spinner/spinner.jsx';
+import SpinnerRandomPlanet from '../spinner-random-planet/spinner-random-planet.jsx';
 import ErrorIndicator from '../error-indicator/error-indicator.jsx';
 import SwapiService from "../../services/swapi-service.js";
 
@@ -49,8 +49,8 @@ const RandomPlanet = () => {
     return (
         <div className="container-randomplanet">
             {
-                loading ? <Spinner/> : <img className="random-planet-img" alt="Planet"
-                                       src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}/>
+                loading ? <SpinnerRandomPlanet/> : <img className="random-planet-img" alt="Planet"
+                                                        src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}/>
             }
             <div className="container-infoplanet">
                 <ul className="info-planet">

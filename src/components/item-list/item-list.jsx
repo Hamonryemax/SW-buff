@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Spinner from '../spinner/spinner.jsx';
 import ErrorIndicator from '../error-indicator/error-indicator.jsx';
 import './item-list.css';
 import SwapiService from "../../services/swapi-service.js";
+import SpinnerItemList from "../spinner-item-list/spinner-item-list.jsx";
 
 const ItemList = ({ onItemSelected }) => {
     const swapiService = new SwapiService();
@@ -43,7 +43,7 @@ const ItemList = ({ onItemSelected }) => {
     return (
         <div className="container-for-item">
             {loading ? (
-                <Spinner />
+                <SpinnerItemList />
             ) : (
                 <ul className="list-item">
                     {peopleList && renderItems(peopleList)}

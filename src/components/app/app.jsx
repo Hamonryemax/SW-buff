@@ -6,7 +6,6 @@ import PersonDetails from "../person-details/person-details.jsx";
 import './app.css';
 
 function App() {
-    const [showRandomPlanet] = useState(true);
     const [selectedPerson, setSelectedPerson] = useState(null);
 
     const onPersonSelected = (id) => {
@@ -17,7 +16,7 @@ function App() {
     return (
         <div className="container">
             <Header />
-            {showRandomPlanet && <RandomPlanet />}
+            <RandomPlanet />
             <div className="container-for-panel">
                 <ItemList onItemSelected={onPersonSelected} />
                 <PersonDetails personId={selectedPerson} />

@@ -1,7 +1,7 @@
 import React from 'react';
-import './spinner.css'
+import './spinner-item-list.css'
 
-const Spinner = () => {
+const SpinnerItemList = () => {
     return (
         <div className="loadingio-spinner-eclipse-nq4q5u6dq7r">
             <div className="ldio-x2uulkbinbj">
@@ -11,4 +11,4 @@ const Spinner = () => {
     )
 }
 
-export default Spinner;
+export default SpinnerItemList;
