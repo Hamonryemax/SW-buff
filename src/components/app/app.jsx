@@ -4,23 +4,20 @@ import RandomPlanet from '../random-planet/random-planet.jsx';
 import ItemList from "../item-list/item-list.jsx";
 import PersonDetails from "../person-details/person-details.jsx";
 import './app.css';
+import PeoplePage from "../people-page/people-page.jsx";
 
 function App() {
-    const [selectedPerson, setSelectedPerson] = useState(null);
-
-    const onPersonSelected = (id) => {
-        console.log("Selected person ID:", id);
-        setSelectedPerson(id); // Обновляем состояние с правильным `id`
-    };
+    // const [selectedPerson, setSelectedPerson] = useState(null);
+    //
+    // const onPersonSelected = (id) => {
+    //     setSelectedPerson(id);
+    // };
 
     return (
         <div className="container">
             <Header />
             <RandomPlanet />
-            <div className="container-for-panel">
-                <ItemList onItemSelected={onPersonSelected} />
-                <PersonDetails personId={selectedPerson} />
-            </div>
+            <PeoplePage />
         </div>
     );
 }

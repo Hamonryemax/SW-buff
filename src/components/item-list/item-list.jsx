@@ -25,11 +25,11 @@ const ItemList = ({ onItemSelected }) => {
     }, []);
 
     const renderItems = (peopleList) => {
-        return peopleList.map((person) => (
+        return peopleList.slice(0, 5).map((person) => (
             <li
                 className="list-group-item list-group-item-action item"
-                key={person.id} // Используем `id` в качестве ключа
-                onClick={() => onItemSelected(person.id)} // Передаем `id` правильно
+                key={person.id}
+                onClick={() => onItemSelected(person.id)}
             >
                 {person.name}
             </li>

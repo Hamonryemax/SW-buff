@@ -9,15 +9,12 @@ const PersonDetails = ({ personId }) => {
 
     useEffect(() => {
         if (!personId) {
-            console.log("No personId provided");
             return;
         }
 
-        console.log("Fetching person with id:", personId);
         swapiService
             .getPerson(personId)
             .then((personData) => {
-                console.log("Person data:", personData);
                 setPerson(personData);
             })
             .catch((error) => {
