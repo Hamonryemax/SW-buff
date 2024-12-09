@@ -1,38 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import SwapiService from "../../services/swapi-service.js";
-import './person-details.css';
+import './item-details.css';
 import BlankWindowDetails from "../blank-window-details/blank-window-details.jsx";
 
-const PersonDetails = ({ personId }) => {
+const ItemDetails = ({ itemId, getData, getImageUrl }) => {
     const swapiService = new SwapiService();
-    const [person, setPerson] = useState(null);
+    const [item, setItem] = useState(null);
+    const [image, setImage] = useState(null);
+
+
 
     useEffect(() => {
-        if (!personId) {
+        if (!itemId) {
+            setItem(null);
             return;
         }
 
-        swapiService
-            .getPerson(personId)
-            .then((personData) => {
-                setPerson(personData);
+        getData(itemId)
+            .then((itemData) => {
+                setItem(itemData);
+                setImage(getImageUrl({ id: itemId }));
             })
             .catch((error) => {
-                console.error('Error fetching person:', error);
+                console.error('Error fetching item:', error);
+                setItem(null)
             });
-    }, [personId]);
+    }, [itemId, getData, getImageUrl]);
 
-    if (!person) {
+    if (!item) {
         return <BlankWindowDetails />;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = person;
+    const { name, gender, birthYear, eyeColor } = item;
 
     return (
         <div className="container-person-details">
             <img
                 className="person-img"
-                src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+                src={image}
                 alt={name}
             />
             <div className="container-info-person">
@@ -56,4 +61,4 @@ const PersonDetails = ({ personId }) => {
     );
 };
 
-export default PersonDetails;
+export default ItemDetails;
