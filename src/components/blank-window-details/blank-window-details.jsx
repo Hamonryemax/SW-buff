@@ -9,15 +9,15 @@ const BlankWindowDetails = () => {
                 <ul className="info-person">
                     <div className="label-person">Name</div>
                     <li className="info-item">
-                        <span>Gender: </span>
+                        <span>Gender </span>
                         <span></span>
                     </li>
                     <li className="info-item">
-                        <span>Birth Year: </span>
+                        <span>Birth Year </span>
                         <span></span>
                     </li>
                     <li className="info-item">
-                        <span>Eye Color: </span>
+                        <span>Eye Color </span>
                         <span></span>
                     </li>
                 </ul>
