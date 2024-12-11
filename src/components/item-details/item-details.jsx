@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './item-details.css';
 import BlankWindowDetails from "../blank-window-details/blank-window-details.jsx";
 
-const Record = ({ item, field, label }) => {
+import './item-details.css'
+
+export const Record = ({ item, field, label }) => {
     return (
         <li className="info-item">
             <span>{label}</span>
@@ -11,7 +13,6 @@ const Record = ({ item, field, label }) => {
     );
 };
 
-export { Record };
 
 const ItemDetails = ({ itemId, getData, getImageUrl, children }) => {
     const [item, setItem] = useState(null);

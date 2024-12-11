@@ -1,64 +1,40 @@
 import React, { useState } from 'react';
 import Header from '../header/header.jsx';
 import RandomPlanet from '../random-planet/random-planet.jsx';
-import ItemList from "../item-list/item-list.jsx";
-import ItemDetails, { Record } from "../item-details/item-details.jsx";
-import PeoplePage from "../people-page/people-page.jsx";
-import SwapiService from "../../services/swapi-service.js";
+import { PlanetList, StarshipList, PersonList } from '../sw-components/item-lists.jsx';
+import { PersonDetails, PlanetDetails, StarshipDetails } from '../sw-components/details.jsx'
 import './app.css';
 
 
 function App() {
-    const swapiService = new SwapiService();
+
     const [selectedPerson, setSelectedPerson] = useState(null);
     const [selectedStarship, setSelectedStarship] = useState(null);
+    const [selectedPlanet, setSelectedPlanet] = useState(null);
 
     const onPersonSelected = (id) => setSelectedPerson(id);
     const onStarshipSelected = (id) => setSelectedStarship(id);
+    const onPlanetSelected = (id) => setSelectedPlanet(id);
 
     return (
         <div className="container">
-            <Header />
-            <RandomPlanet />
+            <Header/>
+            <RandomPlanet/>
             <div className="container-for-panel">
-                <PeoplePage />
-                <ItemList
-                    getData={swapiService.getAllPeople}
-                    onItemSelected={onPersonSelected}
-                    renderItem={(item) => item.name}
-                />
-                {selectedPerson && (
-                    <ItemDetails
-                        itemId={selectedPerson}
-                        getData={swapiService.getPerson}
-                        getImageUrl={swapiService.getPersonImage}
-                    >
-                        <Record field="gender" label="Gender" />
-                        <Record field="birthYear" label="Birth Year" />
-                        <Record field="eyeColor" label="Eye Color" />
-                    </ItemDetails>
-                )}
+                <PersonList onItemSelected={onPersonSelected}/>
+                <PersonDetails itemId={11}/>
             </div>
             <div className="container-for-panel">
-                <ItemList
-                    getData={swapiService.getAllStarships}
-                    onItemSelected={onStarshipSelected}
-                    renderItem={(item) => item.name}
-                />
-                {selectedStarship && (
-                    <ItemDetails
-                        itemId={selectedStarship}
-                        getData={swapiService.getStarship}
-                        getImageUrl={swapiService.getStarshipImage}
-                    >
-                        <Record field="model" label="Model" />
-                        <Record field="length" label="Length" />
-                        <Record field="costInCredits" label="Cost" />
-                    </ItemDetails>
-                )}
+                <PlanetList onItemSelected={onPlanetSelected}/>
+                <PlanetDetails itemId={5}/>
+            </div>
+            <div className="container-for-panel">
+                <StarshipList onItemSelected={onStarshipSelected}/>
+                <StarshipDetails itemId={9}/>
             </div>
         </div>
-    );
+    )
+        ;
 }
 
 export default App;

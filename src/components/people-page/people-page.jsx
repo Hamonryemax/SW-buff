@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './people-page.css';
+import React, { useState } from 'react';
 import ItemList from "../item-list/item-list.jsx";
 import ItemDetails from "../item-details/item-details.jsx";
 import SwapiService from "../../services/swapi-service.js";
+
+import './people-page.css';
 
 const PeoplePage = () => {
     const swapiService = new SwapiService();
