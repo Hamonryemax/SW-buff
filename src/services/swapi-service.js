@@ -43,6 +43,11 @@ export default class SwapiService {
             .slice(0, 5);
     }
 
+    getStarship = async (id) => {
+        const starship = await this.getResource(`/starships/${id}/`);
+        return this._transformStarships(starship);
+    }
+
     getPersonImage = (id) => {
         return `${this._imageBase}characters/${id}.jpg`;
     };
@@ -54,11 +59,6 @@ export default class SwapiService {
     getPlanetImage = (id) => {
         return `${this._imageBase}planets/${id}.jpg`;
     };
-
-    getStarship = async (id) => {
-        const starship = await this.getResource(`/starships/${id}/`);
-        return this._transformStarships(starship);
-    }
 
     _extractId = (item) => {
         const idRegExp = /\/([0-9]*)\/$/;

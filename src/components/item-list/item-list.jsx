@@ -1,17 +1,18 @@
 import React from 'react';
 import ErrorIndicator from '../error-indicator/error-indicator.jsx';
+import SpinnerItemList from '../spinner-item-list/spinner-item-list.jsx';
 import { useData } from '../sw-components/use-data.jsx';
 
-import './item-list.css'
+import './item-list.css';
 
 const ItemList = ({ onItemSelected, getData, renderItem }) => {
-    const { data, error } = useData(getData);
+    const { data, error, loading } = useData(getData);
 
-    if (error) {
-        return <ErrorIndicator />;
+    if (loading) {
+        return <SpinnerItemList />;
     }
 
-    if (!data || !Array.isArray(data)) {
+    if (error || !data || !Array.isArray(data)) {
         return <ErrorIndicator />;
     }
 

@@ -4,6 +4,7 @@ import RandomPlanet from '../random-planet/random-planet.jsx';
 import { PlanetList, StarshipList, PersonList } from '../sw-components/item-lists.jsx';
 import { PersonDetails, PlanetDetails, StarshipDetails } from '../sw-components/details.jsx'
 import './app.css';
+import ErrorBoundary from "../error-boundry/error-boundry.jsx";
 
 
 function App() {
@@ -17,22 +18,24 @@ function App() {
     const onPlanetSelected = (id) => setSelectedPlanet(id);
 
     return (
-        <div className="container">
-            <Header/>
-            <RandomPlanet/>
-            <div className="container-for-panel">
-                <PersonList onItemSelected={onPersonSelected}/>
-                <PersonDetails itemId={11}/>
+        <ErrorBoundary>
+            <div className="container">
+                <Header/>
+                <RandomPlanet/>
+                <div className="container-for-panel">
+                    <PersonList onItemSelected={onPersonSelected}/>
+                    <PersonDetails itemId={selectedPerson}/>
+                </div>
+                <div className="container-for-panel">
+                    <PlanetList onItemSelected={onPlanetSelected}/>
+                    <PlanetDetails itemId={selectedPlanet}/>
+                </div>
+                <div className="container-for-panel">
+                    <StarshipList onItemSelected={onStarshipSelected}/>
+                    <StarshipDetails itemId={selectedStarship}/>
+                </div>
             </div>
-            <div className="container-for-panel">
-                <PlanetList onItemSelected={onPlanetSelected}/>
-                <PlanetDetails itemId={5}/>
-            </div>
-            <div className="container-for-panel">
-                <StarshipList onItemSelected={onStarshipSelected}/>
-                <StarshipDetails itemId={9}/>
-            </div>
-        </div>
+        </ErrorBoundary>
     )
         ;
 }

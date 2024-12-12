@@ -28,7 +28,7 @@ const ItemDetails = ({ itemId, getData, getImageUrl, children }) => {
         getData(itemId)
             .then((itemData) => {
                 setItem(itemData);
-                const imageUrl = getImageUrl({ id: itemId });
+                const imageUrl = getImageUrl(itemId);
                 setImage(imageUrl);
             })
             .catch((error) => {
@@ -42,7 +42,7 @@ const ItemDetails = ({ itemId, getData, getImageUrl, children }) => {
         return <BlankWindowDetails />;
     }
 
-    const { name } = item;
+    const name = item?.name || 'Unknown';
 
     return (
         <div className="container-person-details">
