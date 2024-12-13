@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect, useContext} from 'react';
 import React from 'react';
-import SwapiService from '../../services/swapi-service.js';
+import SwapiServiceContext from "../swapi-service-context/swapi-service-context.jsx";
 
 export const withSwapiService = (WrappedComponent) => {
     return (props) => {
-        const swapiService = new SwapiService();
+        const swapiService = useContext(SwapiServiceContext);
 
         return <WrappedComponent {...props} swapiService={swapiService} />;
     };
