@@ -32,4 +32,3 @@ export const useData = (getData) => {
 
     return { data, loading, error };
 };
-
