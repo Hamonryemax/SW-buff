@@ -1,16 +1,22 @@
-import React, {useState} from "react";
 import { StarshipList } from '../sw-components/item-lists.jsx';
-import { StarshipDetails } from '../sw-components/details.jsx';
+import { useParams, useNavigate } from 'react-router-dom';
+import { StarshipDetails } from "../sw-components/details.jsx";
 
+function StarshipDetailsWrapper() {
+    const { id } = useParams();
+    return <StarshipDetails itemId={id} />;
+}
 
-export function StarshipsPage() {
-    const [selectedStarship, setSelectedStarship] = useState(null);
-    const onStarshipSelected = (id) => setSelectedStarship(id);
+function StarshipsPage() {
+    const navigate = useNavigate();
 
     return (
-        <div className="container-for-panel">
-            <StarshipList onItemSelected={onStarshipSelected}/>
-            <StarshipDetails itemId={selectedStarship}/>
-        </div>
-    )
+        <StarshipList
+            onItemSelected={(itemId) => {
+                navigate(`/starships/${itemId}`);
+            }}
+        />
+    );
 }
+
+export { StarshipsPage, StarshipDetailsWrapper };

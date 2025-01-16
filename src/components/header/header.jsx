@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './header.css';
 
@@ -7,17 +7,17 @@ const Header = () => {
         <div className="header">
             <ul className="nav nav-tabs">
                 <li className="nav-label">
-                    <a className="nav-label-link">SWbuff</a>
+                    <Link className="nav-label-link" to="/">SWbuff</Link>
                 </li>
                 <div className="container-btn">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">People</a>
+                        <Link className="nav-link" to="/people">People</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Planets</a>
+                        <Link className="nav-link" to="/planets">Planets</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Starships</a>
+                        <Link className="nav-link" to="/starships">Starships</Link>
                     </li>
                 </div>
             </ul>

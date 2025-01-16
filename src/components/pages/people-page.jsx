@@ -1,16 +1,22 @@
-import React, {useState} from "react";
 import { PersonList } from '../sw-components/item-lists.jsx';
-import { PersonDetails } from '../sw-components/details.jsx';
+import { useParams, useNavigate } from 'react-router-dom';
+import { PersonDetails } from "../sw-components/details.jsx";
 
-
-export function PeoplePage() {
-    const [selectedPerson, setSelectedPerson] = useState(null);
-    const onPersonSelected = (id) => setSelectedPerson(id);
-
-    return(
-        <div className="container-for-panel">
-            <PersonList onItemSelected={onPersonSelected}/>
-            <PersonDetails itemId={selectedPerson}/>
-        </div>
-    )
+function PeopleDetailsWrapper() {
+    const { id } = useParams();
+    return <PersonDetails itemId={id} />;
 }
+
+function PeoplePage() {
+    const navigate = useNavigate();
+
+    return (
+        <PersonList
+            onItemSelected={(itemId) => {
+                navigate(`/people/${itemId}`);
+            }}
+        />
+    );
+}
+
+export { PeoplePage, PeopleDetailsWrapper };

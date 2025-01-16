@@ -1,16 +1,22 @@
-import React, {useState} from "react";
 import { PlanetList } from '../sw-components/item-lists.jsx';
-import { PlanetDetails } from '../sw-components/details.jsx';
+import { useParams, useNavigate } from 'react-router-dom';
+import { PlanetDetails } from "../sw-components/details.jsx";
 
-
-export function PlanetsPage() {
-    const [selectedPlanet, setSelectedPlanet] = useState(null);
-    const onPlanetSelected = (id) => setSelectedPlanet(id);
-
-    return(
-        <div className="container-for-panel">
-            <PlanetList onItemSelected={onPlanetSelected}/>
-            <PlanetDetails itemId={selectedPlanet}/>
-        </div>
-    )
+function PlanetsDetailsWrapper() {
+    const { id } = useParams();
+    return <PlanetDetails itemId={id} />;
 }
+
+function PlanetsPage() {
+    const navigate = useNavigate();
+
+    return (
+        <PlanetList
+            onItemSelected={(itemId) => {
+                navigate(`/planets/${itemId}`);
+            }}
+        />
+    );
+}
+
+export { PlanetsPage, PlanetsDetailsWrapper };
